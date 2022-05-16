@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import { useState } from 'react';
 import { ListItem } from './components/ListItem';
 import { AddForm } from './components/AddForm';
@@ -13,14 +12,14 @@ function App() {
     {id: 3, task: "drink water", isCompleted: false}
   ]);
   
-
   const handleClick = (event) => {
-    const updateTodos = [...todos, {task: value, isCompleted: false}];
+    const updateTodos = [...todos, {id: (todos.length + 1), task: value, isCompleted: false}];
     setTodos(updateTodos);
     setValue('');
     console.log(updateTodos);
     event.preventDefault();
   }
+
 
   return (
     <div className="App">
@@ -28,7 +27,7 @@ function App() {
         <h1 className="App-title">ToDo List</h1>
         {todos.map((element) => (
             <div>
-                <ListItem todos={element} key={element.id} />
+              <ListItem key={element.id} todos={element} isCompleted={element.isCompleted}/>
             </div>
         ))}
         <AddForm handleClick={handleClick} value={value} setValue={setValue}/>
