@@ -26,9 +26,7 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">ToDo List</h1>
         {todos.map((element) => (
-            <div>
-              <ListItem key={element.id} todos={element} isCompleted={element.isCompleted}/>
-            </div>
+          <ListItem key={element.id} todos={element} isCompleted={element.isCompleted}/>
         ))}
         <AddForm handleClick={handleClick} value={value} setValue={setValue}/>
       </header>
